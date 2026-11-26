@@ -1,3 +1,4 @@
+
 expenses = []
 
 def add_expense():
@@ -13,6 +14,7 @@ def add_expense():
 
 
 def show_expenses():
+feature-delete
     pass
 def show_total():  
     pass
@@ -20,10 +22,19 @@ def delete_expense():
     if not expenses:
         print("No expenses to delete.")
         return
+    if not expenses:
+        print("Aucune depense enregistree.")
+        return
+
+    for number, expense in enumerate(expenses, start=1):
+        print(f"{number}. {expense['description']} - "
+              f"{expense['amount']:.2f}")
+main
 
     for i, expense in enumerate(expenses, start=1):
         print(f"{i}. {expense['description']} - {expense['amount']}")
 
+feature-delete
     choice = input("Enter expense number to delete: ")
 
     if not choice.isdigit():
@@ -37,6 +48,10 @@ def delete_expense():
         print(f"Deleted: {removed['description']}")
     else:
         print("Invalid number.")
+def show_total():
+    total = sum(item["amount"] for item in expenses)
+    print(f"Total : {total:.2f}")
+    main
 
 
 def main():
